@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    .container {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+    
+    p {
+        text-transform: capitalize;
+        font-weight: bold;
+        color: white !important;
+    }
+</style>
+
+<body style="background-image: radial-gradient(circle 62px at center center, hsla(149,19%,61%,0.15) 0%, hsla(149,19%,61%,0.15) 27%,transparent 27%, transparent 35%,transparent 35%, transparent 100%),linear-gradient(270deg, hsla(149,19%,61%,0.15) 0%, hsla(149,19%,61%,0.15) 8%,transparent 8%, transparent 100%),linear-gradient(0deg, hsla(149,19%,61%,0.15) 0%, hsla(149,19%,61%,0.15) 10%,transparent 10%, transparent 100%),linear-gradient(180deg, hsla(149,19%,61%,0.15) 0%, hsla(149,19%,61%,0.15) 10%,transparent 10%, transparent 100%),linear-gradient(90deg, hsla(149,19%,61%,0.15) 0%, hsla(149,19%,61%,0.15) 8%,transparent 8%, transparent 100%),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20)); background-size: 33px 33px;">
+
+    <h1 style="color: white;text-align: center ;margin-top: 20px;"><span style="color: red">COVID-19</span> WORLDWIDE DATA</h1>
+    {% csrf_token %}
+    <h3 style="color:yellow;" class="text-center  mt-4"><span style="color: whitesmoke;">Last updated: </span> {{curdate}} </h3>
+
+
+
+
+    <form style="margin-top: 100px;margin-bottom: 50px" method="post" class="d-flex justify-content-center align-items-center" novalidate="novalidate" action="">
+        {% csrf_token %}
+        <select class="form-control" style="width: 200px" name="selectedcountry">
+        {% for country in mylist %}
+        <option>{{country}}</option>
+        {% endfor %}
+    
+    </select>
+        <input type="submit" class="btn btn-danger" name="">
+    </form>
+    <h1 style="color:rgb(188, 17, 231);text-align: center">{{selectedcountry}}</h1>
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container" style="background-color: rgb(33, 121, 192);height: 100px;width:205px">
+            <h1 style="text-align: center;">{{total}}</h1>
+            <p style="text-align: center;">total</p>
+        </div>
+        <div class="container" style="background-color: green;height: 100px;width:200px">
+            <h1 style="text-align: center;color: white">{{recovered}}</h1>
+            <p style="text-align: center;color: white">recovered</p>
+        </div>
+        <div class="container" style="background-color: yellow;height: 100px;width:200px">
+            <h1 style="text-align: center;">{{active}}</h1>
+            <p style="text-align: center;">active</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container" style="background-color:skyblue ;height: 100px;width:200px">
+            <h1 style="text-align: center;">{{new}}</h1>
+            <p style="text-align: center;">new</p>
+        </div>
+        <div class="container" style="background-color: rgb(36, 33, 33);height: 100px;width:200px">
+            <h1 style="text-align: center;color: white">{{deaths}}</h1>
+            <p style="text-align: center;color: white">deaths</p>
+        </div>
+        <div class="container" style="background-color:red ;height: 100px;width:200px">
+            <h1 style="text-align: center;color: white">{{critical}}</h1>
+            <p style="text-align: center;color: white">critical</p>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+
+        <p style="position: absolute;bottom: 0px;color:grey;text-align: center;">developed By <span style="color: white">HOUARI Youness</span></p>
+    </div>
+
+
+</body>
+
+</html>
